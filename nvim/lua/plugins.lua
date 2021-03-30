@@ -9,16 +9,31 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
     use {'wbthomason/packer.nvim', opt = true}
     use {'blackcauldron7/surround.nvim'}
-    use {'morhetz/gruvbox'} -- Colorscheme
+    use {
+		"numtostr/gruvbox-material",
+		config = require("plugins._theme").config
+	} -- Colorscheme
     use {'vim-airline/vim-airline'}
-    use {'mhinz/vim-startify'}
-    use {'voldikss/vim-floaterm'}
+    use {
+		"mhinz/vim-startify",
+		config = require("plugins._startify").config
+	}
+    use {
+		"voldikss/vim-floaterm",
+		config = require("plugins._floaterm").config
+	}
     use {'preservim/nerdtree'}
     use {'psliwka/vim-smoothie'}
-    use {'luochen1990/rainbow'}
-    use {'jiangmiao/auto-pairs'}
+	use {'luochen1990/rainbow'}
+	use "jiangmiao/auto-pairs"
+	use {
+                    "neoclide/coc.nvim",
+                    branch = "release",
+                    config = require("plugins._coc").config
+    }
     -- Plug 'wincent/command-t'
     use {'liuchengxu/vim-which-key'}
+    use {'tibabit/vim-templates'}
     --  use {'wellle/context.vim'}
     -- Plug 'jakobkogler/Algorithm-DataStructures'
     -- Plug 'prabirshrestha/vim-lsp'
@@ -39,17 +54,5 @@ return require('packer').startup(function()
 
     -- Load on a combination of conditions: specific filetypes or commands
     -- Also run code after load (see the "config" key)
-  use {
-    'w0rp/ale',
-    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-    cmd = 'ALEEnable',
-    config = 'vim.cmd[[ALEEnable]]'
-  }
-
   -- Plugins can have dependencies on other plugins
-  use {
-    'haorenW1025/completion-nvim',
-    opt = true,
-    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  }
   end)

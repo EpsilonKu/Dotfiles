@@ -1,3 +1,6 @@
+local M = {}
+
+function M.config()
 vim.g.startify_custom_header = { 
                  "                        .            .      ",
                  "                      .,;'           :,.    ",
@@ -15,5 +18,6 @@ vim.g.startify_custom_header = {
                  "                      .co          .:o:.    ",
                  "                        .           .'      ",
                 }
+end 
 
-
+return M
