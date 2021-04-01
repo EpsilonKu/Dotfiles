@@ -14,18 +14,7 @@
 --	awful.key({ }, "#233", function () awful.util.spawn("xbacklight -inc 10") end),
 --]]
 
---  Local autostart
-do
-  local cmds =
-  {
-    "firefox",
-    "xedit"
-  }
 
-  for _,i in pairs(cmds) do
-    awful.util.spawn(i)
-  end
-end
 
 -- {{{ Required libraries
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
@@ -45,6 +34,20 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 -- }}}
+
+--  Local autostart
+do
+  local cmds =
+  {
+	  "ulauncher",
+	  "picom"
+  }
+
+  for _,i in pairs(cmds) do
+    awful.util.spawn(i)
+  end
+end
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -937,9 +940,14 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
+
+function titlebar_add_with_settings(c)
+    awful.titlebar.add(c, { modkey = modkey, height = 16, font = "Terminus 6"})
+end
+
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
+	{ rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
@@ -949,7 +957,9 @@ awful.rules.rules = {
                      screen = awful.screen.preferred,
                      placement = awful.placement.no_overlap+awful.placement.no_offscreen,
                      size_hints_honor = false
-     }
+     },
+	  { rule_any = { type = { "dialog", "normal" } },
+      properties = { titlebars_enabled = false } }
     },
 
     -- Titlebars
