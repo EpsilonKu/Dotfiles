@@ -14,6 +14,19 @@
 --	awful.key({ }, "#233", function () awful.util.spawn("xbacklight -inc 10") end),
 --]]
 
+--  Local autostart
+do
+  local cmds =
+  {
+    "firefox",
+    "xedit"
+  }
+
+  for _,i in pairs(cmds) do
+    awful.util.spawn(i)
+  end
+end
+
 -- {{{ Required libraries
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
 local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
@@ -377,7 +390,7 @@ globalkeys = my_table.join(
 		awful.tag.history.restore, 
 		{description = 'alternate between current and previous tag', group = 'tag'}
 	),
-	awful.key({ modkey, 'Control' }, 
+	awful.key({ modkey }, 
 		'w',
 		function ()
 			-- tag_view_nonempty(-1)
@@ -391,7 +404,7 @@ globalkeys = my_table.join(
 		end, 
 		{description = 'view previous non-empty tag', group = 'tag'}
 	),
-	awful.key({ modkey, 'Control' }, 
+	awful.key({ modkey }, 
 		's',
 		function ()
 			-- tag_view_nonempty(1)
@@ -761,7 +774,7 @@ globalkeys = my_table.join(
 		end,
 		{description = 'open application drawer', group = 'launcher'}
 	),
-	awful.key({ modkey,           }, "Tab",
+	awful.key({ modkey }, 'd',
     function ()
         -- awful.client.focus.history.previous()
         awful.client.focus.byidx(-1)
@@ -769,7 +782,7 @@ globalkeys = my_table.join(
             client.focus:raise()
         end
     end),
-	awful.key({ modkey, "Shift"   }, "Tab",
+	awful.key({ modkey }, 'a',
     function ()
         -- awful.client.focus.history.previous()
         awful.client.focus.byidx(1)
