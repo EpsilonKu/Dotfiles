@@ -29,7 +29,7 @@ return require('packer').startup(function()
 		config = require("plugins._coc").config
 	}
 	use {
-		'nvim-telescope/telescope.nvim',
+		"nvim-telescope/telescope.nvim",
 		requires = {
 			{
 				'nvim-lua/popup.nvim'
@@ -37,8 +37,13 @@ return require('packer').startup(function()
 			{
 				'nvim-lua/plenary.nvim'
 			}
-		}
+		},
+		config = require("plugins._telescope").config
 	}
+	use {
+			"nvim-telescope/telescope-fzy-native.nvim",
+			requires = {"romgrk/fzy-lua-native"}
+    }
 	use {
 		"oberblastmeister/neuron.nvim"
 	}

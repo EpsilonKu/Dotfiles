@@ -56,7 +56,7 @@ function M.config()
         }
     }
 	
-	U.map("n", "<C-n>", ":NvimTreeToggle<CR>")
+	U.map("n", "<C-q>", ":NvimTreeToggle<CR>")
 --	nnoremap <leader>r :NvimTreeRefresh<CR>
 --	nnoremap <leader>n :NvimTreeFindFile<CR>
 --	let nvim_tree_disable_keybindings=1
