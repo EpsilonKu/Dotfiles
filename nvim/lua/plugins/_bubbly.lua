@@ -2,8 +2,8 @@ local M = {}
 
 function M.config()
 	vim.g.bubbly_palette = {
-		background = "#2a2622",
-		foreground = "#EDE6DE",
+		background = "#38332e",
+		foreground = "#ede6de",
 		black = "#2a2622",
 		red = "#ec7279",
 		green = "#a0c980",
@@ -16,29 +16,15 @@ function M.config()
 		darkgrey = "#404247",
 	}
 	vim.g.bubbly_statusline = {
-		'mode',
-		'truncate',
 		'path',
+		'truncate',
+		'mode',
 		'branch',
 		'signify',
 		'coc',
 		'divisor',
 		'filetype',
 		'progress',
-	}
-	vim.g.bubbly_palette = {
-		background = "Black",
-		foreground = "White",
-		black = "Black",
-		red = "Red",
-		green = "Green",
-		yellow = "Yellow",
-		blue = "Blue",
-		purple = "Magenta",
-		cyan = "Cyan",
-		white = "White",
-		lightgrey = "LightGrey",
-		darkgrey = "Grey",
 	}
 	vim.g.bubbly_symbols = {
 		default = 'PANIC!',
