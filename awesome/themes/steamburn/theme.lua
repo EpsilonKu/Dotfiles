@@ -10,6 +10,13 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
+-- local keyboard_layout = require("keyboard_layout")
+
+local kbdcfg = awful.widget.keyboardlayout:new ()
+-- kbdcfg.add_primary_layout("English", "US", "us")
+-- kbdcfg.add_primary_layout("Русский", "RU", "ru")
+-- kbdcfg.bind()
+
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -264,6 +271,7 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             spr,
             theme.mpd.widget,
+            kbdcfg,
             --theme.mail.widget,
             cpu.widget,
             mem.widget,
