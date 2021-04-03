@@ -22,6 +22,10 @@ return require('packer').startup(function()
 		"voldikss/vim-floaterm",
 		config = require("plugins._floaterm").config
 	}
+	use {
+		"terrortylor/nvim-comment",
+		require('nvim_comment').setup()
+	}
 	use "jiangmiao/auto-pairs"
 	use {
 		"neoclide/coc.nvim",
@@ -41,12 +45,12 @@ return require('packer').startup(function()
 		config = require("plugins._telescope").config
 	}
 	use {
+		'oberblastmeister/neuron.nvim'
+	}
+	use {
 			"nvim-telescope/telescope-fzy-native.nvim",
 			requires = {"romgrk/fzy-lua-native"}
     }
-	use {
-		"oberblastmeister/neuron.nvim"
-	}
 	use {
 		'kyazdani42/nvim-web-devicons'
 	}
